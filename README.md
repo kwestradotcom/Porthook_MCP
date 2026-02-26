@@ -6,6 +6,20 @@ Combines [Cloudflare Tunnels](https://developers.cloudflare.com/cloudflare-one/c
 
 **Workflow**: `tunnel_start` → get public URL → `qa_scrape` / `qa_screenshot` / `browser_create` / `qa_agent` → `tunnel_stop`
 
+---
+
+### ⚡ Let your AI install it
+
+Paste this into Cursor, Claude Code, or any agent — it will clone, build, and wire up the config:
+
+```
+Clone https://github.com/kwestradotcom/Porthook_MCP.git, cd into the repo, run npm install && npm run build, then add porthook as an MCP server pointing to the built dist/index.js with my FIRECRAWL_API_KEY env var.
+```
+
+> Get a free Firecrawl API key at [firecrawl.dev](https://firecrawl.dev) (500 credits included).
+
+---
+
 ## Tools (19)
 
 ### Tunnel Tools (9)
