@@ -386,6 +386,15 @@ qa_screenshot(url: "https://staging.myapp.com", full_page: true)
 
 **Together**: Start a tunnel to get a public URL, then pass that URL to any QA tool, browser session, or agent. The agent sees the full loop — expose, test, tear down — in one conversation.
 
+## Updating
+
+```bash
+cd /path/to/Porthook_MCP
+npm run update
+```
+
+This pulls the latest code, installs any new dependencies, and rebuilds. After running it, restart your IDE (Cursor, Claude Desktop, etc.) — MCP servers are spawned once at startup, so a restart is required to pick up the new binary.
+
 ## License
 
 MIT
