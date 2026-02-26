@@ -315,7 +315,9 @@ server.registerTool(
       "Start a quick (temporary) Cloudflare Tunnel that exposes a local port to the internet. " +
       "Returns a public https://*.trycloudflare.com URL. No authentication required. " +
       "Auto-detects Vite dev servers and patches their config to allow tunnel Host headers. " +
-      "The tunnel stays open until stopped with tunnel_stop.",
+      "The tunnel stays open until stopped with tunnel_stop. " +
+      "NOTE: Firecrawl browser tools (browser_create, qa_screenshot) may be blocked by Cloudflare bot protection when tunneling a Vite dev server. " +
+      "For reliable visual QA, tunnel a production build instead: npm run build && npx vite preview --port <same-port>.",
     inputSchema: z.object({
       port: z.number().int().min(1).max(65535).describe("Local port to expose (e.g. 3000, 8080)"),
       label: z
@@ -381,6 +383,12 @@ server.registerTool(
         } else {
           notes.push(`Vite detected (PID ${viteInfo.pid}) — allowedHosts already configured.`);
         }
+        notes.push(
+          `⚠️  Dev server detected. Cloudflare's bot protection may block Firecrawl browser tools (browser_create, qa_screenshot, qa_agent) against a Vite dev server due to HMR injection.`,
+          `   → For reliable visual QA, serve a production build instead:`,
+          `       npm run build && npx vite preview --port ${port}`,
+          `   Then re-run tunnel_start. qa_scrape and qa_check are unaffected.`,
+        );
       }
 
       return {
