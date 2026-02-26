@@ -1,0 +1,43 @@
+{
+  "name": "@kwestra/mcp-porthook",
+  "version": "0.2.0",
+  "description": "MCP server for QA testing — expose local services via Cloudflare Tunnels, then scrape/screenshot/crawl them with Firecrawl",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "mcp-porthook": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "skills"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts",
+    "start": "node dist/index.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.7.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "porthook",
+    "cloudflared",
+    "cloudflare-tunnel",
+    "firecrawl",
+    "qa",
+    "kwestra"
+  ]
+}
